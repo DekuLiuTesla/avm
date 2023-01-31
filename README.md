@@ -2,6 +2,8 @@
 
 ## 环境
 
+### 最佳实践（推荐，已测试可行）
+
 1. 第一步 使用 MIM 安装 MMCV
 ```bash
 pip install -U openmim
