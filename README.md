@@ -2,6 +2,22 @@
 
 ## 环境
 
+1. 第一步 使用 MIM 安装 MMCV
+```bash
+pip install -U openmim
+mim install mmcv-full
+```
+
+2. 第二步 安装 MMSegmentation
+```bash
+pip install mmsegmentation
+```
+
+3. 第三步下载配置文件(可选)
+
+```bash
+mim download mmsegmentation --config upernet_swin_small_patch4_window7_512x512_160k_ade20k_pretrain_224x224_1K --dest .
+```
 
 ## 训练
 
