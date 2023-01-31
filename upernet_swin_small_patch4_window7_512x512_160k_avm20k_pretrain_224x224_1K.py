@@ -1,7 +1,7 @@
 # Please update _base_ and PRETRAINED
 
 _base_ = [ 
-    "/home/zeyu_yan/openmmlab/mmsegmentation/configs/swin/upernet_swin_small_patch4_window7_512x512_160k_ade20k_pretrain_224x224_1K.py"
+    "upernet_swin_small_patch4_window7_512x512_160k_ade20k_pretrain_224x224_1K.py"
 ]
 
 NUM_CLASSES = 4

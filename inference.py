@@ -33,8 +33,9 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("--config", type=str, default="upernet_swin_small_patch4_window7_512x512_160k_avm20k_pretrain_224x224_1K.py")
-    parser.add_argument("--checkpoint", type=str, default="/home/zeyu_yan/openmmlab/work_dirs/swin_avm_demo/iter_128000.pth")
+    # parser.add_argument("--config", type=str, default="upernet_swin_small_patch4_window7_512x512_160k_avm20k_pretrain_224x224_1K.py")
+    parser.add_argument("--config", type=str, default=r"F:\Paper\solution1\avm_proj\upernet_swin_small_patch4_window7_512x512_160k_avm20k_pretrain_224x224_1K.py")
+    parser.add_argument("--checkpoint", type=str, default="latest.pth")
     parser.add_argument("--image_path", type=str, default="demo.jpg")
     parser.add_argument("--save_dir", type=str, default=".")
     parser.add_argument("--rgb", type=lambda x: x == "True", default="True", choices=["True", "False"])
