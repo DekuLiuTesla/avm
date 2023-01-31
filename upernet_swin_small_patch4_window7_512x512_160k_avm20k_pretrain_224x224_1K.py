@@ -1,11 +1,10 @@
-# Please update _base_ and PRETRAINED
 
 _base_ = [ 
     "upernet_swin_small_patch4_window7_512x512_160k_ade20k_pretrain_224x224_1K.py"
 ]
 
 NUM_CLASSES = 4
-PRETRAINED = "/mnt/diskg/zeyu_yan/swin_small_224_b16x64_300e_imagenet_20210615_110219-7f9d988b.pth"
+# PRETRAINED = "swin_small_224_b16x64_300e_imagenet_20210615_110219-7f9d988b.pth"
 
 # dataset settings
 dataset_type = 'AVMDataset'
@@ -66,7 +65,7 @@ data = dict(
         pipeline=test_pipeline))
 
 model = dict(
-    pretrained=PRETRAINED,
+    # pretrained=PRETRAINED,
     decode_head=dict(num_classes=NUM_CLASSES),
     auxiliary_head=dict(num_classes=NUM_CLASSES)
 )
