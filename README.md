@@ -18,7 +18,7 @@ pip install mmsegmentation
 3. 第三步下载配置文件(可选)
 
 ```bash
-mim download mmsegmentation --config upernet_swin_small_patch4_window7_512x512_160k_ade20k_pretrain_224x224_1K --dest .
+mim download mmsegmentation --config lraspp_m-v3s-d8_scratch_512x1024_320k_cityscapes --dest .
 ```
 
 ## 训练
