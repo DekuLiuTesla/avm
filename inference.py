@@ -21,7 +21,7 @@ def inference_sample(args):
     out_file = os.path.join(args.save_dir, name)
 
     if args.rgb:
-        model.show_result(img, result, out_file=out_file, opacity=1)
+        model.show_result(img, result, out_file=out_file, opacity=0.5)
     else:
         mmcv.imwrite(result[0], out_file)
 
@@ -33,8 +33,8 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("--config", type=str, default="configs/upernet_swin_small_patch4_window7_512x512_160k_avm20k_pretrain_224x224_1K.py")
-    parser.add_argument("--checkpoint", type=str, default="checkpoints/latest.pth")
+    parser.add_argument("--config", type=str, default="configs/lraspp_m-v3s-d8_scratch_512x1024_320k_avm.py")
+    parser.add_argument("--checkpoint", type=str, default="checkpoints/iter_320000.pth")
     parser.add_argument("--image_path", type=str, default="demo.jpg")
     parser.add_argument("--save_dir", type=str, default=".")
     parser.add_argument("--rgb", type=lambda x: x == "True", default="True", choices=["True", "False"])
