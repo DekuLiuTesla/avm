@@ -54,12 +54,12 @@ avm
 
 将原数据集格式转换为CityScapes格式
 ```python
-python create_data.py --avm-dir ./data/avm --output-dir ./data/cityscapes
+python create_data.py --avm-dir ./data/avm --output-dir ./data/avm_cs_format
 ```
 
 转换过后文件结构如下：
 ```python
-cityscapes
+avm_cs_format
  │
  ├─ gtFine
  │   └─ train
