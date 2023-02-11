@@ -25,12 +25,12 @@ mim download mmsegmentation --config lraspp_m-v3s-d8_scratch_512x1024_320k_citys
 
 在当前目录下建立软连接
 ```bash
-ln -s AVM_DATA_ROOT AVM
+ln -s AVM_DATA_ROOT avm
 ```
 
 其中AVM原始数据集目录需调整为如下结构
 ```python
-AVM
+avm
  │
  ├─ images
  │   ├─ b2_left
@@ -54,11 +54,10 @@ AVM
 
 将原数据集格式转换为CityScapes格式
 ```python
-python create_data.py --avm-dir ./data/AVM --output-dir ./data/cityscapes
+python create_data.py --avm-dir ./data/avm --output-dir ./data/cityscapes
 ```
 
 转换过后文件结构如下：
-data/cityscapes/leftImg8bit/train/b3_to_b2_0_leftImg8bit.png
 ```python
 cityscapes
  │
