@@ -7,24 +7,27 @@ import torch
 from mmcv.parallel import collate, scatter
 from mmseg.datasets.pipelines import Compose
 
-def get_model(args):
 
-    PALETTE = [[0, 0, 0], [255, 255, 255], [255, 0, 0], [0, 0, 255]]
+def get_model(args):
+    PALETTE = [[128, 64, 128], [244, 35, 232], [119, 11, 32], [102, 102, 156],
+               [190, 153, 153], [0, 0, 230], [250, 170, 30], [220, 220, 0],
+               [107, 142, 35], [152, 251, 152], [70, 130, 180], [220, 20, 60],
+               [255, 0, 0], [0, 0, 142], [0, 0, 70], [0, 60, 100],
+               [0, 80, 100], [70, 70, 70], [153, 153, 153]]  # borrowed from cityscapes
     model = init_segmentor(args.config, args.checkpoint, device='cuda')
     model.PALETTE = PALETTE
 
     return model
+
 
 class LoadImage:
     """A simple pipeline to load image."""
 
     def __call__(self, results):
         """Call function to load images into results.
-
         Args:
             results (dict): A result dict contains the file name
                 of the image to be read.
-
         Returns:
             dict: ``results`` will be returned containing loaded image.
         """
@@ -41,14 +44,13 @@ class LoadImage:
         results['ori_shape'] = img.shape
         return results
 
+
 def inference_segmentor(model, imgs):
     """Inference image(s) with the segmentor.
-
     Args:
         model (nn.Module): The loaded segmentor.
         imgs (str/ndarray or list[str/ndarray]): Either image files or loaded
             images.
-
     Returns:
         (list[Tensor]): The segmentation result.
     """
@@ -84,8 +86,8 @@ def inference_segmentor(model, imgs):
         result = model(return_loss=False, rescale=True, **data)
     return result
 
-def inference_sample(args):
 
+def inference_sample(args):
     model = get_model(args)
 
     img = mmcv.imread(args.image_path)
@@ -100,12 +102,10 @@ def inference_sample(args):
 
 
 if __name__ == '__main__':
-    
-
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("--config", type=str, default="configs/bisenetv2_fcn_4x4_1024x1024_160k_avm.py")
-    parser.add_argument("--checkpoint", type=str, default="checkpoints/iter_144000.pth")
+    parser.add_argument("--config", type=str, default="configs/bisenetv2_fcn_4x8_1024x1024_40k_cityscapes_part.py")
+    parser.add_argument("--checkpoint", type=str, default="checkpoints/latest.pth")
     parser.add_argument("--image_path", type=str, default="demo.jpg")
     parser.add_argument("--save_dir", type=str, default=".")
     parser.add_argument("--rgb", type=lambda x: x == "True", default="True", choices=["True", "False"])
@@ -114,4 +114,3 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     inference_sample(args)
-
