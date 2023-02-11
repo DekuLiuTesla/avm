@@ -18,7 +18,7 @@ pip install mmsegmentation
 3. 第三步下载配置文件(可选)
 
 ```bash
-mim download mmsegmentation --config lraspp_m-v3s-d8_scratch_512x1024_320k_cityscapes --dest .
+mim download mmsegmentation --config bisenetv2_fcn_4x8_1024x1024_160k_cityscapes --dest .
 ```
 
 ## 训练
@@ -78,5 +78,5 @@ cityscapes
 ## 推理
 
 ```bash
-python inference.py --config=bisenetv2_fcn_4x8_1024x1024_40k_cityscapes_part.py --checkpoint=latest.pth --image_path=demo.jpg 
+python inference.py --config=configs/bisenetv2_fcn_4x8_1024x1024_40k_cityscapes_part.py --checkpoint=iter_5000.pth --image_path=demo.jpg 
 ```
