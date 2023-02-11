@@ -78,5 +78,5 @@ avm_cs_format
 ## 推理
 
 ```bash
-python inference.py --config=configs/bisenetv2_fcn_4x8_1024x1024_40k_cityscapes_part.py --checkpoint=iter_5000.pth --image_path=demo.jpg 
+python inference.py --config=configs/bisenetv2_fcn_4x4_1024x1024_160k_cityscapes.py --checkpoint=iter_5000.pth --image_path=demo.jpg 
 ```
