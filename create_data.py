@@ -32,6 +32,7 @@ def save_img(avm_dir, output_dir):
     img_suffix = '_leftImg8bit.png'
     output_img_path = os.path.join(output_dir, 'leftImg8bit/train')
     avm_img_path = os.path.join(avm_dir, 'images')
+    print('Saving Images ...')
 
     filename_list = os.listdir(avm_img_path)
     for img_filename in filename_list:
@@ -49,6 +50,8 @@ def save_img(avm_dir, output_dir):
             mmcv.imwrite(img, save_path)
             progress_bar.update()
 
+    print('\nDone')
+
 
 def save_anno(avm_dir, output_dir):
     img_suffix = '_gtFine_labelTrainIds.png'
@@ -57,6 +60,7 @@ def save_anno(avm_dir, output_dir):
     output_anno_path = os.path.join(output_dir, 'gtFine/train')
     avm_img_path = os.path.join(avm_dir, 'images')
     avm_anno_path = os.path.join(avm_dir, 'mask')
+    print('Saving Annotations ...')
 
     filename_list = os.listdir(avm_img_path)
     for img_filename in filename_list:
@@ -80,6 +84,7 @@ def save_anno(avm_dir, output_dir):
             mmcv.imwrite(anno_img, save_path)
             progress_bar.update()
 
+    print('\nDone')
 
 def vis_results(avm_dir, output_dir):
     save_dir = output_dir
